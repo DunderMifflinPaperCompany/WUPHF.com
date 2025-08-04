@@ -1,0 +1,161 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "WUPHF - The Future of Communication";
+}
+
+<div class="wuphf-container">
+    <!-- WUPHF Header -->
+    <div class="wuphf-header text-center mb-4">
+        <h1 class="wuphf-logo">🐕 WUPHF.com</h1>
+        <p class="wuphf-tagline">Washington University Public Health Fund</p>
+        <p class="wuphf-subtitle">The revolutionary communication tool that sends your message to everyone you know, on every platform, all at the same time!</p>
+        <button id="demoModeBtn" class="btn btn-warning btn-lg pulse-animation">
+            🎯 DEMO MODE - EXPERIENCE THE WOOF!
+        </button>
+    </div>
+
+    <!-- Stats Dashboard -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="stat-card">
+                <h3>847</h3>
+                <p>WUPHFs Sent Today</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <h3>6</h3>
+                <p>Platforms Connected</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <h3>23</h3>
+                <p>Printers Jammed</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <h3>∞</h3>
+                <p>Future Potential</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- WUPHF Composer -->
+    <div class="wuphf-composer mb-4">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4>📝 Compose Your WUPHF</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group mb-3">
+                    <label for="authorName">Your Name:</label>
+                    <input type="text" id="authorName" class="form-control" placeholder="Enter your name" value="Anonymous User">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="wuphfContent">Your Message:</label>
+                    <textarea id="wuphfContent" class="form-control" rows="3" maxlength="280" placeholder="What's on your mind? (280 characters max)"></textarea>
+                    <small class="form-text text-muted">
+                        <span id="charCount">0</span>/280 characters
+                    </small>
+                </div>
+                
+                <!-- Channel Selection -->
+                <div class="form-group mb-3">
+                    <label>Select Notification Channels:</label>
+                    <div class="channel-selector">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="emailChannel" value="Email" checked>
+                            <label class="form-check-label" for="emailChannel">📧 Email</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="smsChannel" value="SMS" checked>
+                            <label class="form-check-label" for="smsChannel">📱 SMS</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="facebookChannel" value="Facebook" checked>
+                            <label class="form-check-label" for="facebookChannel">📘 Facebook</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="twitterChannel" value="Twitter" checked>
+                            <label class="form-check-label" for="twitterChannel">🐦 Twitter</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="printerChannel" value="Printer" checked>
+                            <label class="form-check-label" for="printerChannel">🖨️ Printer</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="phoneChannel" value="HomePhone">
+                            <label class="form-check-label" for="phoneChannel">☎️ Home Phone</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="urgentWuphf">
+                    <label class="form-check-label" for="urgentWuphf">
+                        🚨 Mark as URGENT (extra loud WOOF!)
+                    </label>
+                </div>
+
+                <button id="sendWuphfBtn" class="btn btn-success btn-lg btn-block">
+                    🚀 SEND WUPHF TO EVERYONE!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Feed -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h4>📡 Live WUPHF Feed</h4>
+                </div>
+                <div class="card-body">
+                    <div id="wuphfFeed">
+                        <!-- WUPHFs will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <!-- Notification Panel -->
+            <div class="card mb-3">
+                <div class="card-header bg-warning">
+                    <h5>🔔 Live Notifications</h5>
+                </div>
+                <div class="card-body">
+                    <div id="notificationPanel" style="height: 300px; overflow-y: auto;">
+                        <p class="text-muted">Notifications will appear here...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Printer Simulation -->
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h5>🖨️ Virtual Printer</h5>
+                </div>
+                <div class="card-body">
+                    <div id="printerOutput" style="height: 200px; overflow-y: auto; background: #f8f9fa; border: 1px solid #dee2e6; padding: 10px; font-family: 'Courier New', monospace; font-size: 12px;">
+                        <p class="text-muted">Printer ready... WUPHFs will print here!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sound for WOOF -->
+<audio id="woofSound" preload="auto">
+    <source src="~/sounds/woof.mp3" type="audio/mpeg">
+    <source src="~/sounds/woof.wav" type="audio/wav">
+</audio>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.min.js"></script>
+    <script src="~/js/wuphf.js"></script>
+}

@@ -1,0 +1,40 @@
+@page
+@model WuphfWeb.Pages.Admin.LoginModel
+@{
+    ViewData["Title"] = "Admin Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WUPHF Admin Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body class="bg-light">
+    <div class="container" style="max-width: 420px; margin-top: 80px;">
+        <div class="card shadow-sm">
+            <div class="card-header bg-dark text-white">
+                <h4>🐕 WUPHF Admin Console</h4>
+            </div>
+            <div class="card-body">
+                @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <div class="alert alert-danger">@Model.ErrorMessage</div>
+                }
+                <form method="post">
+                    <div class="form-group mb-3">
+                        <label>Username</label>
+                        <input type="text" class="form-control" asp-for="Username" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Password</label>
+                        <input type="password" class="form-control" asp-for="Password" />
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
